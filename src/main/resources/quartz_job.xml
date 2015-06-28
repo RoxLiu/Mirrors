@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quartz>
+    <job>
+        <job-detail>
+            <name>WebReptile</name>
+            <group>Deamon</group>
+            <job-class>com.rox.app.mirrors.reptile.job.WebReptileJob</job-class>
+        </job-detail>
+        <trigger>
+            <cron>
+                <name>Daily</name>
+                <group>Deamon</group>
+                <job-name>WebReptileJob</job-name>
+                <job-group>Deamon</job-group>
+                <cron-expression>* 0/15 * * * ?</cron-expression>
+            </cron>
+        </trigger>
+    </job>
+</quartz>
