@@ -9,7 +9,8 @@ create table post_item
         id 			BIGINT KEY NOT NULL AUTO_INCREMENT,
         author			VARCHAR(32),
         date			DATETIME,
-        content			VARCHAR(8192) default ''
+        content			VARCHAR(8192) default '',
+        type    int
 ) ENGINE=InnoDB;
 
 drop table IF EXISTS post_info;

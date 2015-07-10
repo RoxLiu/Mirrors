@@ -12,10 +12,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "post_item")
 public class PostItem extends IdEntity {
+    public final static int TYPE_DELETED = 0;
+    public final static int TYPE_OWNER = 1;
+    public final static int TYPE_GENERAL = 2;
+    public final static int TYPE_HIGHLIGHT = 3;
+
     public String author;
     public String date;
     public String content;
-
+    public int type;
     public String getAuthor() {
         return author;
     }
@@ -38,5 +43,13 @@ public class PostItem extends IdEntity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

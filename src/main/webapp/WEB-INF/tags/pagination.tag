@@ -1,6 +1,7 @@
 <%@tag pageEncoding="UTF-8" %>
 <%@ attribute name="page" type="org.springframework.data.domain.Page" required="true" %>
 <%@ attribute name="paginationSize" type="java.lang.Integer" required="true" %>
+<%@ attribute name="url" type="java.lang.String" required="true" %>
 
 <%@ taglib prefix="c" uri="/WEB-INF/tld/c.tld" %>
 
@@ -20,28 +21,12 @@
     request.setAttribute("totalPages", totalPages);
 %>
 <div class="page box">
-    <div class="l fl">
-        <span>共${totalCnt }条<c:if test="${totalPages > 1}">，每页显示：</c:if></span>
-        <c:if test="${totalCnt > pageSize}">
-            <select name="pageSize">
-                <option value="10" <c:if test="${pageSize == 10}">selected</c:if>>10</option>
-                <option value="20" <c:if test="${pageSize == 20}">selected</c:if>>20</option>
-            </select>
-            条
-        </c:if>
-    </div>
-    <c:if test="${totalPages > 1}">
-        <div class="r fr">
-            <span>共<%=totalPages %>页</span>第<input name="pageNumber" type="text" class="pageIpt" id="hidPageNumber" value="${current }"/>页
-            <input name="" type="button" class="pageBtn" value="确定" btnType="submitForm"/>
-        </div>
-    </c:if>
-    <div class="c fr">
+    <div class="c fl">
         <%
             if (page != null && page.hasPreviousPage() && page.getTotalPages() > 1) {
         %>
-        <a href="?page=1" btnType="submitForm" pageNumber="1">&lt;&lt;</a>
-        <a href="?page=${current-1}" btnType="submitForm" pageNumber="${current-1}">&lt;</a>
+        <a href="${url}/1">&lt;&lt;</a>
+        <a href="${url}/${current-1}">&lt;</a>
         <%} %>
         <c:if test="${totalPages > 1}">
             <c:forEach var="i" begin="${begin}" end="${end}">
@@ -50,15 +35,28 @@
                         <span>${i}</span>
                     </c:when>
                     <c:otherwise>
-                        <a href="?page=${i}" btnType="submitForm" pageNumber="${i}">${i}</a>
+                        <a href="${url}/${i}">${i}</a>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
         </c:if>
         <% if (page != null && page.hasNextPage()) {%>
-        <a href="?page=${current+1}" btnType="submitForm" pageNumber="${current+1}">&gt;</a>
-        <a href="?page=${page.totalPages}" btnType="submitForm" pageNumber="${page.totalPages}">&gt;&gt;</a>
+        <a href="${url}/${current+1}">&gt;</a>
+        <a href="${url}/${page.totalPages}">&gt;&gt;</a>
         <%} %>
     </div>
+    <c:if test="${totalPages > 1}">
+        <div class="r fr">
+            <span>共<%=totalPages %>页</span>第<input name="pagetxt" type="text" class="pageIpt" value="${current}"/>页
+            <input name="pagebtn" type="button" value="确定" url ="${url}" onclick="goto_page(this)"/>
+        </div>
+    </c:if>
 </div>
+
+<script type="text/javascript">
+  function goto_page(btn) {
+      var $txt = $(btn).prev();
+      window.location = $(btn).attr("url") + "/" + $txt.val();
+  }
+</script>
 

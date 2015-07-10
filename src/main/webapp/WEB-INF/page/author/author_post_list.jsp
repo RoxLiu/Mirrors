@@ -13,7 +13,7 @@
 <div id="doc">
     <div class="bd">
         <div class="atl-main">
-            <tags:pagination page="${pager}" paginationSize="15" url="${ctx}/post/smith"/>
+            <tags:pagination page="${pager}" paginationSize="15" url="${ctx}/author/post/${author}"/>
             <c:forEach items="${pager.content}" varStatus="sts" var="item">
                 <div class="atl-item">
                     <div class="alt-info" username="${item.author}" type="${item.type}" onmouseover="show_menu(this)" onmouseout="hide_menu(this)">
@@ -29,10 +29,10 @@
                                 ${item.date}
                         </sapn>
 
-                        <a style="display: none;" class="tyf_link" tyf_type="1" href="javascript:void(0)" url="${ctx}/author/block" onclick="handle_menu_event(this)">拉黑</a>
-                        <a style="display: none;" class="tyf_link" tyf_type="2" href="javascript:void(0)" url="${ctx}/author/unblock" onclick="handle_menu_event(this)">洗白</a>
-                        <a style="display: none;" class="tyf_link" tyf_type="3" href="javascript:void(0)" url="${ctx}/author/highlight" onclick="handle_menu_event(this)">关注</a>
-                        <a style="display: none;" class="tyf_link" tyf_type="4" href="javascript:void(0)" url="${ctx}/author/unhighlight" onclick="handle_menu_event(this)">取关</a>
+                        <a style="display: none;" class="tyf_link" tyf_type="1" href="javascript:void(0)" url="${ctx}/post/block" onclick="handle_menu_event(this)">拉黑</a>
+                        <a style="display: none;" class="tyf_link" tyf_type="2" href="javascript:void(0)" url="${ctx}/post/unblock" onclick="handle_menu_event(this)">洗白</a>
+                        <a style="display: none;" class="tyf_link" tyf_type="3" href="javascript:void(0)" url="${ctx}/post/highlight" onclick="handle_menu_event(this)">关注</a>
+                        <a style="display: none;" class="tyf_link" tyf_type="4" href="javascript:void(0)" url="${ctx}/post/unhighlight" onclick="handle_menu_event(this)">取关</a>
                         <a style="display: none;" class="tyf_link" tyf_type="5" href="javascript:void(0)" url="${ctx}/author/post" onclick="handle_menu_event(this)">只看此人</a>
                     </div>
 
@@ -48,7 +48,7 @@
                     </c:if>
                 </div>
             </c:forEach>
-            <tags:pagination page="${pager}" paginationSize="15" url="${ctx}/post/smith"/>
+            <tags:pagination page="${pager}" paginationSize="15" url="${ctx}/author/post/${author}"/>
         </div>
     </div>
 </div>

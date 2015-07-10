@@ -1,9 +1,57 @@
 body {
-    font: 14px/1.8 "Microsoft Yahei", Tahoma, Arial, Helvetica, STHeiti;
+    font-size: 12px;
+    font-family: "宋体";
     margin: 0;
     padding: 0;
-    color: #333333
+    /*color: #333333;*/
+    background: #F5F9FA none repeat scroll 0% 0%;
 }
+
+#doc {
+    margin : auto;
+    width: 950px;
+}
+
+.alt-content {
+    background-color: #EEE;
+    padding: 10px 19px;
+    font-size: 16px;
+    line-height: 28px;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+.alt-info {
+    display: block;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    color: #2a8884;
+}
+
+.fl{ float:left}
+.fr{ float:right}
+/***********page***********/
+.page{ height:100px; line-height:42px;}
+.page .l{ padding-left:2%; width:30%;}
+.page .l span{ padding-right:5px;}
+.page .l select{ width:60px; height:26px; line-height:26px; border:solid 1px #e4e4e4;}
+
+.page .c{ text-align:center;}
+.page .c a{background:#ffffff; padding:0 8px; height:26px; line-height:26px; display:inline-block; margin:0 1px; border: solid 1px #d2d2d2}
+.page .c span{ padding:0 5px;}
+.page .page_ovr{ background:#eaeaea; color:#666666}
+.page .r{ padding-right:2%}
+.page .r span{ padding-right:10px;}
+.page .r .pageIpt{ width:60px; height:26px; line-height:26px;border: solid 1px #d2d2d2; margin:0 5px;}
+.page .r .pageBtn{background:#ffffff; padding:0 10px; height:28px; line-height:26px; border: solid 1px #d2d2d2; cursor:pointer; margin-left:5px;}
+
+
+
+
+
+
+
 
 html, body, iframe, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, fieldset, form, legend, em {
     margin: 0;
@@ -43,25 +91,6 @@ ul, li {
 a {
     text-decoration: none
 }
-
-
-#doc {
-    margin : auto;
-    width: 950px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .fl {
     float: left
