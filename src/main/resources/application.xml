@@ -62,6 +62,19 @@
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
+
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="5"/>
+        <property name="maxIdle" value="5"/>
+        <property name="minIdle" value="1"/>
+        <!-- 设置在自动回收超时连接的时候打印连接的超时错误  -->
+        <property name="logAbandoned" value="true"/>
+        <!-- 设置自动回收超时连接 -->
+        <property name="removeAbandoned"  value="true"/>
+        <!-- 自动回收超时时间(以秒数为单位) -->
+        <property name="removeAbandonedTimeout" value="600"/>
+        <!-- 超时等待时间以毫秒为单位  -->
+        <property name="maxWait" value="100"/>
     </bean>
 
 </beans>
